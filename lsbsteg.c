@@ -251,8 +251,18 @@ unsigned int ReadLE4(FILE *fp)
     return result;
 }
 
-
-
+void binc(int asc,int* bina)
+{
+    for(int i=0;asc>0;i++)    
+        {    
+        bina[i]=asc%2;    
+        asc=asc/2;    
+        }   
+    for(int i=i-1;i>=0;i--)    
+        {    
+        printf("%d",bina[i]);    
+        }  
+}
 int main(int argc, char *argv[])
 {
     FILE *fp;
@@ -261,6 +271,8 @@ int main(int argc, char *argv[])
     BITMAPINFOHEADER *bmInfoHeader = NULL;
     int headersize;
     char estr[100];
+    int ascii[100];
+    int bins[100];
     // if (argc != 2) {
     //     printf("Usage: bmpinfo <file.bmp>\n\n");
     //     exit(1);
@@ -309,7 +321,11 @@ int main(int argc, char *argv[])
     }
     printf("enter the string");
     scanf("%s",estr);
-    
+    for (int i=0;estr[i]!='\0';i++){
+        ascii[i]=(int)(estr[i]);
+        binc(ascii[i],bins);
+    }
+   // printf("%d",bins[0]);
 
 
 
