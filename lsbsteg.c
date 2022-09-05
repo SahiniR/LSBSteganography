@@ -251,14 +251,16 @@ unsigned int ReadLE4(FILE *fp)
     return result;
 }
 
-void binc(int asc,int* bina)
+void binc(int asc)
 {
-    for(int i=0;asc>0;i++)    
+    int bina[100];
+    int i=0;
+    for(i=0;asc>0;i++)    
         {    
         bina[i]=asc%2;    
         asc=asc/2;    
         }   
-    for(int i=i-1;i>=0;i--)    
+    for(i=i-1;i>=0;i--)    
         {    
         printf("%d",bina[i]);    
         }  
@@ -323,7 +325,7 @@ int main(int argc, char *argv[])
     scanf("%s",estr);
     for (int i=0;estr[i]!='\0';i++){
         ascii[i]=(int)(estr[i]);
-        binc(ascii[i],bins);
+        binc(ascii[i]);
     }
    // printf("%d",bins[0]);
 
