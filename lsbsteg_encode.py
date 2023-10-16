@@ -11,7 +11,7 @@ cv.waitKey(0)
 b,g,r=cv.split(in_img)
 
 #sring to binary
-str_in=input("input string")
+str_in=input("input string: \n")
 str_in_bin = ''.join(format(ord(i), '08b') for i in str_in)
 print("The Binary value after string conversion is:",
        str_in_bin)
@@ -39,8 +39,11 @@ for i in range(len(str_in_bin)):
     c+=2
 
 out_img=cv.merge([b,g,r])
+cv.imwrite("C:\LSBSteganography\output_image.png",out_img)
 cv.imshow("output image",out_img)
 cv.waitKey(0)
+
+
 # #binary to string
 # str_out =' '
 
