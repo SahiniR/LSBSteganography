@@ -12,13 +12,14 @@ def pixv2bin(b,strl,c):
 in_img=cv.imread("output_image.png")
 cv.imshow("input image",in_img)
 cv.waitKey(0)
-#cant teill if it work xd
 
 b,g,r=cv.split(in_img)
 
 rows=in_img.shape[0]
 cols=in_img.shape[1]
+
 strlen=' '
+#finding length of message (first 16 bits)
 for i in range(0,16):
     if(i%3==0):
         strlen=pixv2bin(b,strlen,i//3)
@@ -29,7 +30,7 @@ for i in range(0,16):
 
 n=int(strlen,2)
 
-
+#decoding message
 str_out_bin=''
 for i in range(16,16+n*8):
     if(i%3==0):
